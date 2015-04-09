@@ -6,7 +6,8 @@ import stdx.data.json;
 
 int main(string[] args) {
   string text = cast(string)read("./1.json");
-  auto jval = parseJSONValue(text);
+  enum opts = LexOptions.noTrackLocation | LexOptions.noThrow;
+  auto jval = parseJSONValue!opts(text);
   assert(!text.length);
   auto coordinates = jval.get!(JSONValue[string])["coordinates"].get!(JSONValue[]);
   double x = 0;

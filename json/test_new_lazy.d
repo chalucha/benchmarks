@@ -6,7 +6,8 @@ import stdx.data.json;
 
 int main(string[] args) {
   string text = cast(string)read("./1.json");
-  auto nodes = parseJSONStream(text);
+  enum opts = LexOptions.noTrackLocation | LexOptions.noThrow;
+  auto nodes = parseJSONStream!opts(text);
   double x = 0;
   double y = 0;
   double z = 0;
