@@ -5,7 +5,7 @@ import std.algorithm;
 import stdx.data.json;
 
 int main(string[] args) {
-  string text = readText("./1.json");
+  string text = cast(string)read("./1.json");
   auto nodes = parseJSONStream(text);
   double x = 0;
   double y = 0;

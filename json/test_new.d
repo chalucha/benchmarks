@@ -5,7 +5,7 @@ import std.conv;
 import stdx.data.json;
 
 int main(string[] args) {
-  string text = readText("./1.json");
+  string text = cast(string)read("./1.json");
   auto jval = parseJSONValue(text);
   assert(!text.length);
   auto coordinates = jval.get!(JSONValue[string])["coordinates"].get!(JSONValue[]);
